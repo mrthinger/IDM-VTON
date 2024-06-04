@@ -309,5 +309,5 @@ with image_blocks as demo:
             
 
 
-image_blocks.launch(server_name="0.0.0.0", server_port=8080)
+image_blocks.launch(server_name="0.0.0.0", server_port=8888)
 
