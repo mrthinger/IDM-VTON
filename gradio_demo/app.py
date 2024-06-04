@@ -150,7 +150,7 @@ def start_tryon(dict,garm_img,garment_des,is_checked,is_checked_crop,denoise_ste
     if is_checked:
         keypoints = openpose_model(human_img.resize((384,512)))
         model_parse, _ = parsing_model(human_img.resize((384,512)))
-        mask, mask_gray = get_mask_location('hd', "upper_body", model_parse, keypoints)
+        mask, mask_gray = get_mask_location('hd', "dresses", model_parse, keypoints)
         mask = mask.resize((768,1024))
     else:
         mask = pil_to_binary_mask(dict['layers'][0].convert("RGB").resize((768, 1024)))
@@ -309,5 +309,5 @@ with image_blocks as demo:
             
 
 
-image_blocks.launch()
+image_blocks.launch(server_name="0.0.0.0", server_port=8080)
 
